@@ -23,7 +23,12 @@ type Player struct {
 	UUID     uuid.UUID
 	EID      int32
 	Username string
-	Pos      pstn.Entity
+
+	FeetPos  pstn.Entity
+	HeadPos  pstn.Entity
+	OnGround bool
+	Yaw      float32
+	Pitch    float32
 
 	LastKeepAlive time.Time
 }

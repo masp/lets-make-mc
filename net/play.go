@@ -28,6 +28,10 @@ const (
 	teleportConfirmServerboundID = 0x00
 	clientSettingsID             = 0x05
 	keepAliveServerboundID       = 0x10
+	playerPosID                  = 0x12
+	playerPosAndRotID            = 0x13
+	playerRotID                  = 0x14
+	playerMovementID             = 0x15
 )
 
 // Clientbound
@@ -142,8 +146,14 @@ func (p *Player) handlePacket(packet proto.RecvPacket) {
 	case clientSettingsID:
 		log.Info("TODO: ClientSettings packet")
 		// TODO
+	case playerPosID:
+		play.Handle()
+	case playerPosAndRotID:
+	case playerRotID:
+	case playerMovementID:
+
 	default:
-		log.Infof("Ignoring packet 0x%2x", packet.ID)
+		log.Infof("Received unknown packet 0x%2x, ignoring", packet.ID)
 	}
 }
 
